@@ -49,7 +49,9 @@ object List: // `List` companion object. Contains functions for creating and wor
 
   def tail[A](l: List[A]): List[A] = ???
 
-  def setHead[A](l: List[A], h: A): List[A] = ???
+  def setHead[A](l: List[A], h: A): List[A] = l match
+    case Nil => throw new Exception("is empty")
+    case Cons(head, tail) => Cons(h, tail)
 
   def drop[A](l: List[A], n: Int): List[A] = ???
 
