@@ -39,6 +39,7 @@ enum Option[+A]:
   def filter_1(f: A => Boolean): Option[A] =
     flatMap(a => if f(a) then Some(a) else None)
 
+
 object Option:
 
   def failingFn(i: Int): Int =
