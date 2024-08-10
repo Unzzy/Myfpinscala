@@ -49,7 +49,10 @@ object Option:
     if xs.isEmpty then None
     else Some(xs.sum / xs.length)
 
+// Implement the variance function in terms of flatMap. If the mean of a sequence is m, the variance is the mean of math.pow(x - m, 2) for each element x in the sequence.
   def variance(xs: Seq[Double]): Option[Double] =
+    mean(xs).flatMap(m => mean(xs.map(x => math.pow(x - m, 2))))
+
 
 
   def map2[A,B,C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] = ???
